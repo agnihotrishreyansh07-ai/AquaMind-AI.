@@ -1,0 +1,15 @@
+from fastapi import FastAPI
+
+app = FastAPI(title="AquaMind AI API")
+
+@app.get("/")
+def read_root():
+    return {"status": "AquaMind Backend is running"}
+
+@app.post("/api/sensor-data")
+def receive_sensor_data(pressure: float, flow_rate: float):
+    # Later, you will add code here to save this data to MongoDB or Firebase
+    return {"message": "Data received successfully", "pressure": pressure}
+
+# To run this file, type this in your terminal:
+# uvicorn main:app --reload
