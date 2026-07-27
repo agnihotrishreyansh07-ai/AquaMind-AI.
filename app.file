@@ -1,0 +1,23 @@
+import streamlit as st
+
+# Page title and icon
+st.set_page_config(page_title="AquaMind AI Dashboard", page_icon="💧")
+
+# Header
+st.title("💧 AquaMind AI Dashboard")
+st.write("Real-time monitoring and predictive analytics")
+
+# Metrics Display
+col1, col2, col3 = st.columns(3)
+col1.metric("Water Pressure", "42 PSI", "+1.2 PSI")
+col2.metric("Flow Rate", "120 L/min", "-0.5 L/min")
+col3.metric("System Risk", "Low", "Normal")
+
+# Simple Interactive Input
+st.subheader("Simulate Sensor Input")
+pressure_input = st.slider("Select System Pressure (PSI)", 0, 100, 42)
+
+if pressure_input > 75:
+    st.error("⚠️ High Pressure Warning! Potential Leak Detected.")
+else:
+    st.success(" System Pressure Normal.")
